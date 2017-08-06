@@ -69,7 +69,7 @@ func TestUUIDBytes(t *testing.T) {
 		[]byte{0x6b, 0xa7, 0xb8, 0x10}, []byte{0x9d, 0xad}, []byte{0x11, 0xd1}, []byte{0x80, 0xb4, 0x00, 0xc0, 0x4f, 0xd4, 0x30, 0xc8},
 	}
 
-	if bytes.Compare(uuid, guid1.UUIDBytes()) != 0 {
+	if !bytes.Equal(uuid, guid1.UUIDBytes()) {
 		t.Errorf("UUIDs do not match")
 	}
 }
