@@ -29,7 +29,7 @@ func ParseRawBytes(guid []byte) (GUID, error) {
 	result.group1 = guid[:4]
 	result.group2 = guid[4:6]
 	result.group3 = guid[6:8]
-	result.group4 = guid[9:]
+	result.group4 = guid[8:]
 	return result, nil
 }
 
