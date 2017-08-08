@@ -38,7 +38,7 @@ func ParseRawBytes(guid []byte) (GUID, error) {
 // or Little Endian byte slice.
 func MustParseRawBytes(guid []byte) GUID {
 	result, err := ParseRawBytes(guid)
-	if err != nil || len(guid) != 16 {
+	if err != nil {
 		log.Panicln("could not parse guid", guid)
 	}
 	return result
