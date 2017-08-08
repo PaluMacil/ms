@@ -24,6 +24,7 @@ type GUID struct {
 // or Little Endian byte slice.
 func ParseRawBytes(guid []byte) (GUID, error) {
 	var result GUID
+	// Remove dashes before attempting to parse.
 	guid = bytes.Replace(guid, []byte{0x2D}, []byte{}, -1)
 	if len(guid) != 16 {
 		return result, errors.New("could not parse guid " + string(guid))
