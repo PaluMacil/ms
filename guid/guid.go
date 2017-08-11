@@ -36,6 +36,12 @@ func ParseRawBytes(guid []byte) (GUID, error) {
 	return result, nil
 }
 
+// ParseRawString converts a string, converts it to a byte slice, and
+// calls ParseRawBytes
+func ParseRawString(guid string) (GUID, error) {
+	return ParseRawBytes([]byte(guid))
+}
+
 // MustParseRawBytes takes a the binary format of a Guid as a byte slice and
 // returns a struct that can output the Guid as its string representation
 // or Little Endian byte slice.
@@ -45,6 +51,12 @@ func MustParseRawBytes(guid []byte) GUID {
 		log.Panicln("could not parse guid", guid)
 	}
 	return result
+}
+
+// MustParseRawString converts a string, converts it to a byte slice, and
+// calls MustParseRawBytes
+func MustParseRawString(guid string) GUID {
+	return MustParseRawBytes([]byte(guid))
 }
 
 // UUIDBytes outputs a single 16 byte slice in Little Endian reflecting how
