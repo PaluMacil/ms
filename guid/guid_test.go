@@ -1,8 +1,9 @@
 package guid
 
-import "testing"
-
-import "bytes"
+import (
+	"bytes"
+	"testing"
+)
 
 func TestIsEqualTo(t *testing.T) {
 	guid1 := GUID{
